@@ -1,78 +1,69 @@
-const Discord = require("discord.js");
+//require("dotenv").config();
+const fs = require('fs');
 const puppeteer = require('puppeteer');
-const config = require("./config.json");
-const comms = require("./comms.js");
-const prefix = config.prefix;
+const { Client, Collection, MessageEmbed } = require('discord.js');
+
+const client = new Client();
+client.commands = new Collection();
+client.aliases = new Collection();
+
+// Подключаем список команд
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const {prefix, token, bot_age, words_array, bot_info} = require("./config.json");
+//const PREFIX = process.env.CMD_PREFIX;
 //const champions = require("./champions.json");
 
-const client = new Discord.Client();
-
-
-client.on("ready", function() {
+// Бот готов
+client.once("ready", () => {
 	/* При успешном запуске, в консоли появится сообщение «[Имя бота] запустился!» */
-	console.log(client.user.username + " запустился!");
+	console.log(client.user.username + " запущен.");
 });
 
-// Обработчик команд
-client.on('message', (msg) => { // Реагирование на сообщения
-	if (msg.author.username != client.user.username && msg.author.discriminator != client.user.discriminator) {
-		var comm = msg.content.trim() + " ";
-		var comm_name = comm.slice(0, comm.indexOf(" "));
-		var messArr = comm.split(" ");
-		for (comm_count in comms.comms) {
-		var comm2 = prefix + comms.comms[comm_count].name;
-		if (comm2 == comm_name) {
-			comms.comms[comm_count].out(client, msg, messArr);
-		}
-		}
-	}
-});
+client.login(token);
 
-client.login(config.BOT_TOKEN);
+// Регистрируем команды
+for(const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
 
-
-async function getPic() {
-	const browser = await puppeteer.launch();
-	const page = await browser.newPage();
-	await page.goto('https://www.leagueofgraphs.com/ru/champions/builds/jhin');
-	await page.waitForSelector('#hplogo');
-	
-	await page.evaluate(() => {
-		// что-нибудь возвращаем
-		
-		// скрываем кнопки
-		let buttons = document.querySelectorAll('.overviewSeeMoreButton');
-		buttons.forEach((element) => {
-			element.hidden = true;
-		})
-	});
-	await page.setViewport({width: 1920, height: 1080});
-	await page.screenshot({path: 'image.png'});
-
-	await browser.close();
+	if (command.aliases && Array.isArray(command.aliases)) command.aliases.forEach(alias => client.aliases.set(alias, command.name));
 }
 
-//getPic();
+// Обработка команд
+client.on('message', message => {
+	// Если сообщение не команда или отправитель бот, прекращаем выполнение функции
+	if(!message.content.startsWith(prefix) || message.author.bot) return;
+	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	const commandName = args.shift().toLowerCase();
 
-let scrape = async () => {
-	const browser = await puppeteer.launch({headless: false});
-	const page = await browser.newPage();
-	await page.goto("https://www.leagueofgraphs.com/ru/champions/builds/jhin");
-	await page.waitFor(1000);
-	// Здесь выполняются операции скрапинга...
-	await page.click('.d-map__region-path_level3');
-	
-	const result = await page.evaluate(() => {
-		// что-нибудь возвращаем
-		document.querySelector('.overviewSeeMoreButton').hidden = true;
-		
-	});
+	// Получаем команду по имени
+	if(!client.commands.has(client.aliases.get(commandName))) return;
+	const command = client.commands.get(client.aliases.get(commandName));
+	//if (!command) command = client.commands.get(client.aliases.get(commandName));
+	//if (!command) return;
 
-	// Возврат значения
-	browser.close();
-	return result;
-};
+	//console.log(command.aliases);
+	console.log(command);
+	// Проверяем команду на аргументы
+	if(command.args === true && !args.length) {
+		const embed = new MessageEmbed()
+		.setColor('#ff0000')
+		.setTitle('ERROR')
+		.setDescription('Not enough arguments.')
+		.setFooter('Bot Error Log')
+		.addField('Code', '000x9', true)
+		.addFields(
+			{name: 'name', value: 'value', inline: true},
+			{name: 'name2', value: 'value2', inline: true},
+		)
+		.setTimestamp();
+		return message.channel.send(embed);
+	}
 
-/*scrape().then((value) => {
-	console.log(value); // Получилось!
-});*/
+	try{
+		command.execute(message, args);
+	} catch(error) {
+		console.error(error);
+		message.reply('Произошла ошибка в обработке команды!');
+	}
+});

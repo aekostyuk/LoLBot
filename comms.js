@@ -1,6 +1,6 @@
-const config = require('./config.json');
-const Discord = require('discord.js');
-const prefix = config.prefix;
+require("dotenv").config();
+const { Client } = require('discord.js');
+const PREFIX = process.env.CMD_PREFIX;
 //const versions = config.versions;
 
 
@@ -15,10 +15,8 @@ function hello(client, mess, args) {
 	console.log("Команда !hello выполнена.");
 }
 
-
-
 // Список комманд //
-let comms_list = [{
+let CMD_LIST = [{
 		name: "test",
 		out: test,
 		about: "Тестовая команда"
@@ -30,4 +28,4 @@ let comms_list = [{
 	}
 ];
 
-module.exports.comms = comms_list;
+module.exports.list = CMD_LIST;

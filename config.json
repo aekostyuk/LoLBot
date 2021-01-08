@@ -1,4 +1,10 @@
 {
-	"BOT_TOKEN": "Nzk2NzgyOTcwOTMzMDg0MTcx.X_c79w.jGOLMk8S2ngEVMtUtHvZ__Gyyo0",
-	"prefix": "!"
+	"prefix": "!",
+	"token": "Nzk2NzgyOTcwOTMzMDg0MTcx.X_c79w.jGOLMk8S2ngEVMtUtHvZ__Gyyo0",
+	"bot_age": 1,
+	"words_array": ["Hi", "Bye", "This is array"],
+	"bot_info": {
+		"name": "LoL Bot",
+		"version": 0.1
+	}
 }

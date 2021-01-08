@@ -1,0 +1,614 @@
+{   "champions":[
+	{
+		"name": "aatrox",
+		"aliases": ["aatrox", "атрокс"]
+	},
+	{
+		"name": "ahri",
+		"aliases": ["ahri", "ари"]
+	},
+	{
+		"name": "akali",
+		"aliases": ["akali", "акали"]
+	},
+	{
+		"name": "alistar",
+		"aliases": ["alistar", "алистар"]
+	},
+	{
+		"name": "amumu",
+		"aliases": ["amumu", "амуму"]
+	},
+	{
+		"name": "anivia",
+		"aliases": ["anivia", "анивия"]
+	},
+	{
+		"name": "annie",
+		"aliases": ["annie", "энни"]
+	},
+	{
+		"name": "aphelios",
+		"aliases": ["aphelios", "афелий"]
+	},
+	{
+		"name": "ashe",
+		"aliases": ["ashe", "эш"]
+	},
+	{
+		"name": "aurelionsol",
+		"aliases": ["aurelionsol", "аурелион"]
+	},
+	{
+		"name": "azir",
+		"aliases": ["azir", "азир"]
+	},
+	{
+		"name": "bard",
+		"aliases": ["bard", "бард"]
+	},
+	{
+		"name": "blitzcrank",
+		"aliases": ["blitzcrank", "блитцкранк"]
+	},
+	{
+		"name": "brand",
+		"aliases": ["brand", "брэнд"]
+	},
+	{
+		"name": "braum",
+		"aliases": ["braum", "браум"]
+	},
+	{
+		"name": "caitlyn",
+		"aliases": ["caitlyn", "кейтлин"]
+	},
+	{
+		"name": "camille",
+		"aliases": ["camille", "камилла"]
+	},
+	{
+		"name": "cassiopeia",
+		"aliases": ["cassiopeia", "кассиопея"]
+	},
+	{
+		"name": "chogath",
+		"aliases": ["chogath", "чогат"]
+	},
+	{
+		"name": "corki",
+		"aliases": ["corki", "корки"]
+	},
+	{
+		"name": "darius",
+		"aliases": ["darius", "дариус"]
+	},
+	{
+		"name": "drmundo",
+		"aliases": ["drmundo", "мундо"]
+	},
+	{
+		"name": "draven",
+		"aliases": ["draven", "дрейвен"]
+	},
+	{
+		"name": "ekko",
+		"aliases": ["ekko", "экко"]
+	},
+	{
+		"name": "elise",
+		"aliases": ["elise", "элиза"]
+	},
+	{
+		"name": "evelynn",
+		"aliases": ["evelynn", "эвилинн"]
+	},
+	{
+		"name": "ezreal",
+		"aliases": ["ezreal", "эзреаль", "эз"]
+	},
+	{
+		"name": "fiddlesticks",
+		"aliases": ["fiddlesticks", "фидлстикс", "фидл"]
+	},
+	{
+		"name": "fiora",
+		"aliases": ["fiora", "фиора"]
+	},
+	{
+		"name": "fizz",
+		"aliases": ["fizz", "физз"]
+	},
+	{
+		"name": "galio",
+		"aliases": ["galio", "галио"]
+	},
+	{
+		"name": "gangplank",
+		"aliases": ["gangplank", "гангпланк", "гп"]
+	},
+	{
+		"name": "garen",
+		"aliases": ["garen", "гарен"]
+	},
+	{
+		"name": "gnar",
+		"aliases": ["gnar", "гнар"]
+	},
+	{
+		"name": "gragas",
+		"aliases": ["gragas", "грагас"]
+	},
+	{
+		"name": "graves",
+		"aliases": ["graves", "грейвс"]
+	},
+	{
+		"name": "hecarim",
+		"aliases": ["hecarim", "гекарим"]
+	},
+	{
+		"name": "heimerdinger",
+		"aliases": ["heimerdinger", "хеймердингер", "хеймер"]
+	},
+	{
+		"name": "illaoi",
+		"aliases": ["illaoi", "иллаой"]
+	},
+	{
+		"name": "irelia",
+		"aliases": ["irelia", "ирелия"]
+	},
+	{
+		"name": "ivern",
+		"aliases": ["ivern", "иверн"]
+	},
+	{
+		"name": "janna",
+		"aliases": ["janna", "жанна"]
+	},
+	{
+		"name": "jarvaniv",
+		"aliases": ["jarvaniv", "джарван"]
+	},
+	{
+		"name": "jax",
+		"aliases": ["jax", "джакс"]
+	},
+	{
+		"name": "jayce",
+		"aliases": ["jayce", "джейс"]
+	},
+	{
+		"name": "jhin",
+		"aliases": ["jhin", "джин"]
+	},
+	{
+		"name": "jinx",
+		"aliases": ["jinx", "джинкс"]
+	},
+	{
+		"name": "kaisa",
+		"aliases": ["kaisa", "кайса"]
+	},
+	{
+		"name": "kalista",
+		"aliases": ["kalista", "калиста"]
+	},
+	{
+		"name": "karma",
+		"aliases": ["karma", "карма"]
+	},
+	{
+		"name": "karthus",
+		"aliases": ["karthus", "картус"]
+	},
+	{
+		"name": "kassadin",
+		"aliases": ["kassadin", "кассадин", "кэссадин"]
+	},
+	{
+		"name": "katarina",
+		"aliases": ["katarina", "катарина", "ката"]
+	},
+	{
+		"name": "kayle",
+		"aliases": ["kayle", "кейл"]
+	},
+	{
+		"name": "kayn",
+		"aliases": ["kayn", "кайн"]
+	},
+	{
+		"name": "kennen",
+		"aliases": ["kennen", "кеннен"]
+	},
+	{
+		"name": "khazix",
+		"aliases": ["khazix", "казикс"]
+	},
+	{
+		"name": "kindred",
+		"aliases": ["kindred", "киндред"]
+	},
+	{
+		"name": "kled",
+		"aliases": ["kled", "клед"]
+	},
+	{
+		"name": "kogmaw",
+		"aliases": ["kogmaw", "когмау", "ког"]
+	},
+	{
+		"name": "leblanc",
+		"aliases": ["leblanc", "леблан", "лб"]
+	},
+	{
+		"name": "ahri",
+		"aliases": ["ahri", "ари"]
+	},
+	{
+		"name": "leesin",
+		"aliases": ["leesin", "лисин", "лысый"]
+	},
+	{
+		"name": "leona",
+		"aliases": ["leona", "леона"]
+	},
+	{
+		"name": "lillia",
+		"aliases": ["lillia", "лиллия"]
+	},
+	{
+		"name": "lissandra",
+		"aliases": ["lissandra", "лиссандра"]
+	},
+	{
+		"name": "lucian",
+		"aliases": ["lucian", "люциан"]
+	},
+	{
+		"name": "lulu",
+		"aliases": ["lulu", "лулу"]
+	},
+	{
+		"name": "lux",
+		"aliases": ["lux", "люкс"]
+	},
+	{
+		"name": "malphite",
+		"aliases": ["malphite", "мальфит", "мальф"]
+	},
+	{
+		"name": "malzahar",
+		"aliases": ["malzahar", "мальзахар", "мальз"]
+	},
+	{
+		"name": "maokai",
+		"aliases": ["maokai", "маокай", "мао"]
+	},
+	{
+		"name": "masteryi",
+		"aliases": ["masteryi", "мастерйи", "уй", "йи", "мастер"]
+	},
+	{
+		"name": "missfortune",
+		"aliases": ["missfortune", "миссфортуна", "фортуна", "мисс", "мф"]
+	},
+	{
+		"name": "mordekaiser",
+		"aliases": ["mordekaiser", "мордекайзер", "морда"]
+	},
+	{
+		"name": "morgana",
+		"aliases": ["morgana", "моргана", "морга"]
+	},
+	{
+		"name": "nami",
+		"aliases": ["nami", "нами"]
+	},
+	{
+		"name": "nasus",
+		"aliases": ["nasus", "насус", "насос"]
+	},
+	{
+		"name": "nautilus",
+		"aliases": ["nautilus", "наутилус", "наут"]
+	},
+	{
+		"name": "neeko",
+		"aliases": ["neeko", "нико"]
+	},
+	{
+		"name": "nidalee",
+		"aliases": ["nidalee", "нидали", "нида"]
+	},
+	{
+		"name": "nocturne",
+		"aliases": ["nocturne", "ноктюрн", "нок"]
+	},
+	{
+		"name": "nunu",
+		"aliases": ["nunu", "нуну", "вилумп"]
+	},
+	{
+		"name": "olaf",
+		"aliases": ["olaf", "олаф"]
+	},
+	{
+		"name": "orianna",
+		"aliases": ["orianna", "орианна", "ори"]
+	},
+	{
+		"name": "ornn",
+		"aliases": ["ornn", "орн"]
+	},
+	{
+		"name": "pantheon",
+		"aliases": ["pantheon", "пантеон", "пант"]
+	},
+	{
+		"name": "poppy",
+		"aliases": ["poppy", "поппи"]
+	},
+	{
+		"name": "pyke",
+		"aliases": ["pyke", "пайк"]
+	},
+	{
+		"name": "qiyana",
+		"aliases": ["qiyana", "киана"]
+	},
+	{
+		"name": "quinn",
+		"aliases": ["quinn", "квин"]
+	},
+	{
+		"name": "rakan",
+		"aliases": ["rakan", "рейкан", "ракан"]
+	},
+	{
+		"name": "rammus",
+		"aliases": ["rammus", "раммус"]
+	},
+	{
+		"name": "reksai",
+		"aliases": ["reksai", "рексай"]
+	},
+	{
+		"name": "rell",
+		"aliases": ["rell", "рэлл"]
+	},
+	{
+		"name": "renekton",
+		"aliases": ["renekton", "ренектон", "реня"]
+	},
+	{
+		"name": "rengar",
+		"aliases": ["rengar", "ренгар"]
+	},
+	{
+		"name": "riven",
+		"aliases": ["riven", "ривен"]
+	},
+	{
+		"name": "rumble",
+		"aliases": ["rumble", "рамбл"]
+	},
+	{
+		"name": "ryze",
+		"aliases": ["ryze", "райз"]
+	},
+	{
+		"name": "samira",
+		"aliases": ["samira", "самира"]
+	},
+	{
+		"name": "sejuani",
+		"aliases": ["sejuani", "седжуани", "седжи"]
+	},
+	{
+		"name": "senna",
+		"aliases": ["senna", "сенна"]
+	},
+	{
+		"name": "seraphine",
+		"aliases": ["seraphine", "серафина"]
+	},
+	{
+		"name": "sett",
+		"aliases": ["sett", "сетт"]
+	},
+	{
+		"name": "shaco",
+		"aliases": ["shaco", "шако"]
+	},
+	{
+		"name": "shen",
+		"aliases": ["shen", "шен"]
+	},
+	{
+		"name": "shyvana",
+		"aliases": ["shyvana", "шивана"]
+	},
+	{
+		"name": "singed",
+		"aliases": ["singed", "синджед"]
+	},
+	{
+		"name": "sion",
+		"aliases": ["sion", "сион"]
+	},
+	{
+		"name": "sivir",
+		"aliases": ["sivir", "сивир"]
+	},
+	{
+		"name": "skarner",
+		"aliases": ["skarner", "скарнер"]
+	},
+	{
+		"name": "sona",
+		"aliases": ["sona", "сона"]
+	},
+	{
+		"name": "soraka",
+		"aliases": ["soraka", "сорака"]
+	},
+	{
+		"name": "swain",
+		"aliases": ["swain", "свейн"]
+	},
+	{
+		"name": "sylas",
+		"aliases": ["sylas", "сайлас"]
+	},
+	{
+		"name": "syndra",
+		"aliases": ["syndra", "синдра"]
+	},
+	{
+		"name": "tahmkench",
+		"aliases": ["tahmkench", "таамкенч", "таам", "кенч"]
+	},
+	{
+		"name": "taliyah",
+		"aliases": ["taliyah", "талия"]
+	},
+	{
+		"name": "talon",
+		"aliases": ["talon", "талон"]
+	},
+	{
+		"name": "taric",
+		"aliases": ["taric", "тарик"]
+	},
+	{
+		"name": "teemo",
+		"aliases": ["teemo", "тимо"]
+	},
+	{
+		"name": "thresh",
+		"aliases": ["thresh", "трэш", "треш"]
+	},
+	{
+		"name": "tristana",
+		"aliases": ["tristana", "тристана"]
+	},
+	{
+		"name": "trundle",
+		"aliases": ["trundle", "трандл"]
+	},
+	{
+		"name": "tryndamere",
+		"aliases": ["tryndamere", "триндамир", "тринда", "трында", "трын"]
+	},
+	{
+		"name": "twistedfate",
+		"aliases": ["twistedfate", "твистедфейт", "тф", "твистед"]
+	},
+	{
+		"name": "twitch",
+		"aliases": ["twitch", "твич", "крыса"]
+	},
+	{
+		"name": "udyr",
+		"aliases": ["udyr", "удир"]
+	},
+	{
+		"name": "urgot",
+		"aliases": ["urgot", "ургот"]
+	},
+	{
+		"name": "varus",
+		"aliases": ["varus", "варус"]
+	},
+	{
+		"name": "vayne",
+		"aliases": ["vayne", "вейн", "вэйн"]
+	},
+	{
+		"name": "veigar",
+		"aliases": ["veigar", "вейгар"]
+	},
+	{
+		"name": "velkoz",
+		"aliases": ["velkoz", "велкоз"]
+	},
+	{
+		"name": "vi",
+		"aliases": ["vi", "ви", "вай"]
+	},
+	{
+		"name": "viktor",
+		"aliases": ["viktor", "виктор", "витя"]
+	},
+	{
+		"name": "vladimir",
+		"aliases": ["vladimir", "владимир", "вова", "володя"]
+	},
+	{
+		"name": "volibear",
+		"aliases": ["volibear", "волибир", "волик"]
+	},
+	{
+		"name": "warwick",
+		"aliases": ["warwick", "варвик", "вв"]
+	},
+	{
+		"name": "wukong",
+		"aliases": ["wukong", "вуконг", "ву"]
+	},
+	{
+		"name": "xayah",
+		"aliases": ["xayah", "шая"]
+	},
+	{
+		"name": "xerath",
+		"aliases": ["xerath", "зерат"]
+	},
+	{
+		"name": "xinzhao",
+		"aliases": ["xinzhao", "ксинжао", "ксин"]
+	},
+	{
+		"name": "yasuo",
+		"aliases": ["yasuo", "ясуо", "ясик", "яс"]
+	},
+	{
+		"name": "yone",
+		"aliases": ["yone", "йоне", "ёне", "ене", "енэ", "ёнэ"]
+	},
+	{
+		"name": "yorick",
+		"aliases": ["yorick", "йорик", "ёрик", "ерик"]
+	},
+	{
+		"name": "yuumi",
+		"aliases": ["yuumi", "юми"]
+	},
+	{
+		"name": "zac",
+		"aliases": ["zac", "зак"]
+	},
+	{
+		"name": "zed",
+		"aliases": ["zed", "зед"]
+	},
+	{
+		"name": "ziggs",
+		"aliases": ["ziggs", "зиггс", "зига"]
+	},
+	{
+		"name": "zilean",
+		"aliases": ["zilean", "зилиан"]
+	},
+	{
+		"name": "zoe",
+		"aliases": ["zoe", "зои", "зоя"]
+	},
+	{
+		"name": "zyra",
+		"aliases": ["zyra", "зайра"]
+	}]
+}
