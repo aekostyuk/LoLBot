@@ -1,7 +1,7 @@
 //require("dotenv").config();
 const fs = require('fs');
 const puppeteer = require('puppeteer');
-const { Client, Collection, MessageEmbed } = require('discord.js');
+const {Client, Collection, MessageEmbed} = require('discord.js');
 
 const client = new Client();
 client.commands = new Collection();
@@ -19,6 +19,7 @@ client.once("ready", () => {
 	console.log(client.user.username + " запущен.");
 });
 
+// Логиним бота
 client.login(token);
 
 // Регистрируем команды
@@ -26,6 +27,7 @@ for(const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 
+	// Делаем карту команд
 	if (command.aliases && Array.isArray(command.aliases)) command.aliases.forEach(alias => client.aliases.set(alias, command.name));
 }
 
@@ -36,7 +38,7 @@ client.on('message', message => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
-	// Получаем команду по имени
+	// Получаем команду по имени или алиасу
 	if(!client.commands.has(client.aliases.get(commandName))) return;
 	const command = client.commands.get(client.aliases.get(commandName));
 	//if (!command) command = client.commands.get(client.aliases.get(commandName));
@@ -48,8 +50,8 @@ client.on('message', message => {
 	if(command.args === true && !args.length) {
 		const embed = new MessageEmbed()
 		.setColor('#ff0000')
-		.setTitle('ERROR')
-		.setDescription('Not enough arguments.')
+		.setTitle('Ошибка')
+		.setDescription('Не достаточно аргументов.')
 		.setFooter('Bot Error Log')
 		.addField('Code', '000x9', true)
 		.addFields(
@@ -60,7 +62,7 @@ client.on('message', message => {
 		return message.channel.send(embed);
 	}
 
-	try{
+	try {
 		command.execute(message, args);
 	} catch(error) {
 		console.error(error);

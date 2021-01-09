@@ -1,14 +1,33 @@
+const fs = require('fs');
 const puppeteer = require('puppeteer');
 const championsList = require('../champions.json');
-const { Client, Collection, MessageEmbed } = require('discord.js');
+const {Client, Collection, MessageEmbed} = require('discord.js');
 
-// Создаем карту чампионов
+// Создаем карту чемпионов
 const champMap = new Collection();
 for(let champItem of championsList.champions) {
 	//console.log(champItem.name);
 	champItem.aliases.forEach(alias => champMap.set(alias, champItem.name));
 }
 //console.log(champMap);
+
+// Генератор случайной строки
+function makeid(length) {
+	let result = '';
+	let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+	let charactersLength = characters.length;
+	for (var i = 0; i < length; i++) {
+		result += characters.charAt(Math.floor(Math.random() * charactersLength));
+	}
+	return result;
+}
+
+// Удаление файлов
+function clearFiles(filePaths) {
+	for(let file of filePaths) {
+		fs.unlinkSync(file);
+	}
+}
 
 async function getBuild(message, champion, mode = 'normal') {
 	const browser = await puppeteer.launch();
@@ -20,21 +39,28 @@ async function getBuild(message, champion, mode = 'normal') {
 	await page.goto(link);
 	//await page.waitForSelector('.recommended-build_runes');
 	await page.setViewport({width: 1920, height: 1080});
-	
 
-	const element1 = await page.$('.recommended-build_runes');
-	const element2 = await page.$('.recommended-build_skills');
-	const element3 = await page.$('.recommended-build_items.media-query_DESKTOP_MEDIUM__DESKTOP_LARGE');
+	let elements = [
+		'.recommended-build_runes',
+		'.recommended-build_skills',
+		'.recommended-build_items.media-query_DESKTOP_MEDIUM__DESKTOP_LARGE'
+	]
 
-	
+	let filePaths = [];
 
-	await element1.screenshot({path: `./tmp/image1.png`});
-	await element2.screenshot({path: `./tmp/image2.png`});
-	await element3.screenshot({path: `./tmp/image3.png`});
+	for(let element of elements) {
+		let postfix = makeid(5);
+		let pageElement = await page.$(element);
+		await pageElement.screenshot({path: `./tmp/${champion}${postfix}.png`});
+		filePaths.push(`./tmp/${champion}${postfix}.png`);
+	}
 
 	await browser.close();
 
-	await message.channel.send(`Держи ${message.author}`, { files: ["./tmp/image1.png", "./tmp/image2.png", "./tmp/image3.png"] });
+	await message.channel.send(`Держи ${message.author}`, { files: filePaths });
+
+	// Удаляем файлы
+	clearFiles(filePaths);
 }
 
 module.exports = {
