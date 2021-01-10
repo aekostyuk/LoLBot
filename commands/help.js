@@ -6,18 +6,18 @@ module.exports = {
     description: 'Help Command',
     args: false,
 	execute(message, args) {
-        message.channel.send('Help!');
+        //message.channel.send('Help!');
         const embed = new MessageEmbed()
 		.setColor('#34deeb')
-		.setTitle('Помощь')
-		.setDescription('Не достаточно аргументов.')
-		.setFooter('Bot Error Log')
-		.addField('Code', '000x9', true)
+		.setTitle('LoL Bot Help')
+		.setDescription('Список команд бота:')
+		//.setFooter('Bot Error Log')
+		//.addField('Code', '000x9', true)
 		.addFields(
-			{name: 'name', value: 'value', inline: true},
-			{name: 'name2', value: 'value2', inline: true},
+			{name: '!help', value: 'Подсказка по командам', inline: false},
+			{name: '!build', value: 'Запрос билда для чемпиона, например !build lux. Можно писать на русском, например !билд люкс.', inline: false},
 		)
-		.setTimestamp();
+		//.setTimestamp();
 		return message.channel.send(embed);
 	},
 }

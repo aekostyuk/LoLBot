@@ -29,6 +29,7 @@ function clearFiles(filePaths) {
 	}
 }
 
+// Функция получени билда
 async function getBuild(message, champion, mode = 'normal') {
 	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
@@ -46,8 +47,8 @@ async function getBuild(message, champion, mode = 'normal') {
 		'.recommended-build_items.media-query_DESKTOP_MEDIUM__DESKTOP_LARGE'
 	]
 
+	// Делаем скриншоты билда и ссылки на них
 	let filePaths = [];
-
 	for(let element of elements) {
 		let postfix = makeid(5);
 		let pageElement = await page.$(element);
@@ -69,6 +70,7 @@ module.exports = {
 	description: 'Info about champion build',
 	args: true,
 	execute(message, args) {
+		message.channel.send('Ищу подходящий билд').then(message => {message.delete({ timeout: 2000 });});
 		let mode = 'normal';
 		if(args[1] === 'арам' || args[1] === 'aram') mode = 'aram';
 
