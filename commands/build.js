@@ -11,7 +11,10 @@ for(let champItem of championsList.champions) {
 }
 //console.log(champMap);
 
-// Генератор случайной строки
+/**
+ * Генератор случайной строки
+ * @param {number} length - длина строки
+ */
 function makeid(length) {
 	let result = '';
 	let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -22,46 +25,58 @@ function makeid(length) {
 	return result;
 }
 
-// Удаление файлов
+/**
+ * Удаление фалов
+ * @param {array} filePaths - массив ссылок на файлы
+ */
 function clearFiles(filePaths) {
 	for(let file of filePaths) {
 		fs.unlinkSync(file);
 	}
 }
 
-// Функция получени билда
+/**
+ * Функция получения билда с сайта
+ * @param {object} message - объект сообщения
+ * @param {string} champion - имя чемпиона
+ * @param {string} mode - режим игры (normal, aram)
+ */
 async function getBuild(message, champion, mode = 'normal') {
-	const browser = await puppeteer.launch();
-	const page = await browser.newPage();
-
-	let link = `https://u.gg/lol/champions/${champion}/build`;
-	if(mode === 'aram') link = `https://u.gg/lol/champions/aram/${champion}-aram`;
-
-	await page.goto(link);
-	//await page.waitForSelector('.recommended-build_runes');
-	await page.setViewport({width: 1920, height: 1080});
-
-	let elements = [
-		'.recommended-build_runes',
-		'.recommended-build_skills',
-		'.recommended-build_items.media-query_DESKTOP_MEDIUM__DESKTOP_LARGE'
-	]
-
-	// Делаем скриншоты билда и ссылки на них
-	let filePaths = [];
-	for(let element of elements) {
-		let postfix = makeid(5);
-		let pageElement = await page.$(element);
-		await pageElement.screenshot({path: `./tmp/${champion}${postfix}.png`});
-		filePaths.push(`./tmp/${champion}${postfix}.png`);
+	try {
+		const browser = await puppeteer.launch();
+		const page = await browser.newPage();
+	
+		let link = `https://u.gg/lol/champions/${champion}/build`;
+		if(mode === 'aram') link = `https://u.gg/lol/champions/aram/${champion}-aram`;
+	
+		await page.goto(link);
+		//await page.waitForSelector('.recommended-build_runes');
+		await page.setViewport({width: 1920, height: 1080});
+	
+		let elements = [
+			'.recommended-build_runes',
+			'.recommended-build_skills',
+			'.recommended-build_items.media-query_DESKTOP_MEDIUM__DESKTOP_LARGE'
+		]
+	
+		// Делаем скриншоты билда и ссылки на них
+		let filePaths = [];
+		for(let element of elements) {
+			let postfix = makeid(5);
+			let pageElement = await page.$(element);
+			await pageElement.screenshot({path: `./tmp/${champion}${postfix}.png`});
+			filePaths.push(`./tmp/${champion}${postfix}.png`);
+		}
+	
+		await browser.close();
+	
+		await message.channel.send(`Держи ${message.author}`, { files: filePaths });
+	
+		// Удаляем файлы
+		clearFiles(filePaths);
+	} catch(e) {
+		console.log(`Произошла ошибка ${e}`);
 	}
-
-	await browser.close();
-
-	await message.channel.send(`Держи ${message.author}`, { files: filePaths });
-
-	// Удаляем файлы
-	clearFiles(filePaths);
 }
 
 module.exports = {
