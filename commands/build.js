@@ -1,7 +1,7 @@
 const fs = require('fs');
 const puppeteer = require('puppeteer');
 const championsList = require('../champions.json');
-const {Client, Collection, MessageEmbed} = require('discord.js');
+const {Collection} = require('discord.js');
 
 // Создаем карту чемпионов
 const champMap = new Collection();
