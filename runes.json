@@ -1,0 +1,27 @@
+{   "runes":
+    [{
+        "name": "domination",
+        "image": "./sources/images/runes/tree-domination.png",
+        "branches":
+            [{
+                "electrocute": "./sources/images/runes/8112.png",
+                "Dark Harvest": "",
+                "Hail of Blades": ""
+            },
+            {
+                "tasteofblood": "./sources/images/runes/",
+                "Cheap Shot": "./sources/images/runes/",
+                "Sudden Impact": "./sources/images/runes/"
+            },
+            {
+                "eyeballcollection": "./sources/images/runes/",
+                "Zombie Ward": "./sources/images/runes/",
+                "": "./sources/images/runes/"
+            },
+            {
+                "Ravenous Hunter": "./sources/images/runes/",
+                "Relentless Hunter": "./sources/images/runes/",
+                "Ultimate Hunter": "./sources/images/runes/"
+            }]
+    }]
+}
